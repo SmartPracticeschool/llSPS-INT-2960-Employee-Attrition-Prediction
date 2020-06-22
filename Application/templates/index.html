@@ -1,0 +1,71 @@
+<html>
+<head>
+<meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<style>
+body {
+     background-image:url(https://i.pinimg.com/564x/51/95/eb/5195ebb8c5f9772deda82aa2937134d3.jpg);
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
+}
+hr {
+    border: 10px solid green;
+    border-radius: 5px;
+}
+</style>
+</head>
+<body bgcolor="lightgray">
+<h1 style="background-color:grey;color:white;" align="center">Employee Attrition Prediction</h1>
+<h3 style="color:white;" align="center">Enter the below fields to find companie's attrition rate</h3>
+<form action="{{ url_for('predict')}}"method="post">
+<table align=center cellspacing=0 cellpadding=5>
+<tr>
+	<th style="color:white;">FEILDS</th>
+	<th style="color:white;">VALUES</th>
+</tr>
+<tr>
+	<td style="color:yellow;">Age</td>
+	<td><input type='text' name='Age' placeholder='Age' required='required'/></td>
+</tr>
+<tr>
+	<td style="color:yellow;">PerformanceRating</td>
+	<td><input type='text' name='PerformanceRating' placeholder='PerformanceRating' required='required'/></td>
+</tr>
+<tr>
+	<td style="color:yellow;">Gender</td>
+	<td><input type='text' name='Gender' placeholder='Gender' required='required'/></td>
+</tr>
+<tr>
+	<td style="color:yellow;">MonthlyRate</td>
+	<td><input type='text' name='MonthlyRate' placeholder='MonthlyRate' required='required'/></td>
+</tr>
+<tr>
+	<td style="color:yellow;">YearsAtCompany</td>
+	<td><input type='text' name='YearsAtCompany' placeholder='YearsAtCompany' required='required'/></td>
+</tr>
+<tr>
+	<td style="color:yellow;">TrainingTimesLastYear</td>
+	<td><input type='text' name='TrainingTimesLastYear' placeholder='TrainingTimesLastYear' required='required'/></td>
+</tr>
+<tr>
+	<td style="color:yellow;">OverTime</td>
+	<td><input type='text' name='OverTime' placeholder='OverTime' required='required'/></td>
+</tr>
+<tr>
+	<td style="color:yellow;">BusinessTravel</td>
+	<td><input type='text' name='BusinessTravel' placeholder='BusinessTravel' required='required'/></td>
+</tr>
+<tr>
+<td colspan=2 align="center"><button type='submit' class='btn btn-primary btn-block btn-large'>Predict Attrition</button></td>
+</tr>
+</table>
+</form>
+{{ prediction_text }}
+</body>
+</html>
